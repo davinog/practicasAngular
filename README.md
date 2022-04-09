@@ -27,9 +27,11 @@ Outras extensións de produtividade:
 - **Rainbow Brackets**: resalta con distintas cores cada par de paréntesis e chaves que se abren anidados, facilita ver se che queda algunha sen pechar <https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets>
 - **Back & Forth**: sirve para situar o cursor en seccións de código polas que se estivo antes <https://marketplace.visualstudio.com/items?itemName=nick-rudenko.back-n-forth>
 
-## Enunciado exercicio
+## Retos
 
-[TODO:]
+Nesta sección vou a enunciar unha serie de retos para manexar distintas características de Angular, como o deseño de listas, táboas, formularios e o manexo do layout.
+
+- [Reto 1][reto1]
 
 ## Estrutrutura de directorios
 
@@ -116,6 +118,22 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+<!-- Enlaces internos -->
+[reto1]:
+<doc/reto1/reto1.md>
+
 <!-- Enlaces externos -->
 [proxectos-ui-modules]:
 <https://github.com/efja/proxectOS-UI/tree/master/src/app/modules>
+
+[api-list]:
+<https://github.com/public-apis/public-apis>
+
+[restcountries]:
+<https://restcountries.com/>
+
+[covid-19-api]:
+<https://github.com/M-Media-Group/Covid-19-API>
+
+[Football-Data.org]:
+<https://www.football-data.org/documentation/quickstart>
