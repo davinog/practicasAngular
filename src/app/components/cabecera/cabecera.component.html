@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="header">
+
+
+        <h5>
+            <img src="{{competition.emblemUrl}}" width="20" />
+            Primera Division
+        </h5>
+
+      
+
+    </div>
+    <div class="row  ">
+        <table class=" .table-borderless " *ngIf="competition">
+            <tbody>
+                <tr>
+                    <th scope="row">Zona:</th>
+                    <td> {{competition.area.name}}</td>
+                <tr>
+                    <th scope="row">Temporada:</th>
+                    <td><!--{{competition.currentSeason.startDate}}--> data</td>
+                </tr>
+                <tr>
+                    <th scope="row">Xornada:</th>
+                    <td>{{competition.seasons.length }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Campión:</th>
+                    <td>Sen informacion</td>
+                </tr>
+
+            </tbody>
+
+            <tfoot>
+                <small class="text-muted">
+                    Última actualización:
+                    <strong>
+                        20 de Marzo do 2022
+                    </strong>
+                </small>
+
+            </tfoot>
+        </table>
+    </div>
+</div>
