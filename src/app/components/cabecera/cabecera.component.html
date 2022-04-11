@@ -1,13 +1,10 @@
-<div class="container">
+<div class="container p-3   ">
     <div class="header">
 
-
         <h5>
-            <img src="{{competition.emblemUrl}}" width="20" />
-            Primera Division
+            <img src="{{competition.emblemUrl}}" width="25" />
+            Primera Division 
         </h5>
-
-      
 
     </div>
     <div class="row  ">
@@ -18,7 +15,8 @@
                     <td> {{competition.area.name}}</td>
                 <tr>
                     <th scope="row">Temporada:</th>
-                    <td><!--{{competition.currentSeason.startDate}}--> data</td>
+                    <td>{{competition.currentSeason.startDate | date:'yyyy'}} - {{competition.currentSeason.endDate |
+                        date:'yyyy'}} </td>
                 </tr>
                 <tr>
                     <th scope="row">Xornada:</th>
@@ -26,7 +24,14 @@
                 </tr>
                 <tr>
                     <th scope="row">Campión:</th>
-                    <td>Sen informacion</td>
+                    <td>
+                        <span *ngIf="!competition.currentSeason.winner?.name; else ganador">
+                            Sen informacion
+                        </span>
+                        <ng-template #ganador>
+                            {{competition.currentSeason.winner!.name}}
+                        </ng-template>
+                    </td>
                 </tr>
 
             </tbody>
@@ -35,7 +40,8 @@
                 <small class="text-muted">
                     Última actualización:
                     <strong>
-                        20 de Marzo do 2022
+                        {{competition.lastUpdated | date:'longDate'}}
+                       
                     </strong>
                 </small>
 
