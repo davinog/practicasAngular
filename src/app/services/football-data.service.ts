@@ -12,7 +12,7 @@ export class FootballDataService {
 
   private _apiKey: string = '284a0453709b4af7b0ea536d8372f9db';
   private _servicioURL: string = 'https://api.football-data.org/v2';
-  private _competitionId: string = 'PL';
+  private _competitionId: string = '2014';
 
 
 
@@ -79,6 +79,16 @@ export class FootballDataService {
       return this.http.get<Partidos>(url, requestOptions);
     }
   
- 
+    cambiarCompeticion(){
+      //duda: no se como hacer que se llame de nuevo a todos los servicios
+      if(this._competitionId === '2014'){
+        this._competitionId = 'PL';
+      }else{
+        this._competitionId = '2014'
+      }
+
+    
+
+    }
 
 }

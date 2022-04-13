@@ -31,6 +31,8 @@ export class CabeceraComponent {
     return this.comp;
   }
 
-
+  cambiarCompeticion(){
+    this.footballDataService.cambiarCompeticion();
+  }
 
 }
