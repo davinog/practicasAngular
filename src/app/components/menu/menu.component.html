@@ -1,6 +1,6 @@
-<hr>
 <div class="container">
-    <ul class="list-group">
+    <!-- descomentar estas lineas para menu con rutas -->
+    <!-- <ul class="list-group">
         <li routerLink="" 
             routerLinkActive="active" 
             [routerLinkActiveOptions]="{ exact: true }"
@@ -18,5 +18,22 @@
             class="list-group-item">
             Temporadas
         </li>
-    </ul>
+    </ul> -->
+
+    <mat-tab-group>
+        <mat-tab label="Clasificacion">
+            <br>
+            <app-clasificacion></app-clasificacion>
+        </mat-tab>
+        <mat-tab label="Partidos">
+            <br>
+            <app-partidos></app-partidos>
+        </mat-tab>
+        <mat-tab label="Temporadas">
+            <br>
+            <app-temporadas></app-temporadas>
+        </mat-tab>
+    </mat-tab-group>
+
+
 </div>

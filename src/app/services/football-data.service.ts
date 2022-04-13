@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Competition } from '../interfaces/football.interface';
+import { Competition } from '../interfaces/competicion.interface';
+import { Partidos } from '../interfaces/partidos.interface';
+import { Observable } from 'rxjs';
+import { Clasificacion } from '../interfaces/clasificacion.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +12,21 @@ export class FootballDataService {
 
   private _apiKey: string = '284a0453709b4af7b0ea536d8372f9db';
   private _servicioURL: string = 'https://api.football-data.org/v2';
-  private _competitionId: string = '2014';
+  private _competitionId: string = 'PL';
+
+
 
   //competicion
-  public comp!: Competition ;
+  public comp!: Competition;
 
   constructor(private http: HttpClient) { }
 
 
-  datosCompeticion(){
+
+
+
+
+  datosCompeticion() {
 
     const headerDict = {
       'X-Auth-Token': this._apiKey,
@@ -25,94 +34,51 @@ export class FootballDataService {
 
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
+      
     };
 
     const url: string = `${this._servicioURL}/competitions/${this._competitionId}`;
 
     return this.http.get<Competition>(url, requestOptions);
-    
-
-   
-    // return {
-    //   "id": 2014,
-    //   "area": {
-    //     "id": 2224,
-    //     "name": "Spain"
-    //   },
-    //   "name": "Primera Division",
-    //   "code": "PD",
-    //   "emblemUrl": "https://crests.football-data.org/PD.png",
-    //   "plan": "TIER_ONE",
-    //   "currentSeason": {
-    //     "id": 380,
-    //     "startDate": new Date("2021-08-13"),
-    //     "endDate": new Date("2022-05-22"),
-    //     "currentMatchday": 31,
-    //     "winner": null
-    //   },
-    //   "seasons": [
-    //     {
-    //       "id": 380,
-    //       "startDate": new Date("2021-08-13"),
-    //       "endDate": new Date("2022-05-22"),
-    //       "currentMatchday": 31,
-    //       "winner": null
-    //     },
-    //     {
-    //       "id": 380,
-    //       "startDate": new Date("2021-08-13"),
-    //       "endDate": new Date("2022-05-22"),
-    //       "currentMatchday": 31,
-    //       "winner": null
-    //     },
-    //     {
-    //       "id": 380,
-    //       "startDate": new Date("2021-08-13"),
-    //       "endDate": new Date("2022-05-22"),
-    //       "currentMatchday": 31,
-    //       "winner": null
-    //     },
-    //     {
-    //       "id": 380,
-    //       "startDate": new Date("2021-08-13"),
-    //       "endDate": new Date("2022-05-22"),
-    //       "currentMatchday": 31,
-    //       "winner": null
-    //     },
-    //     {
-    //       "id": 380,
-    //       "startDate": new Date("2021-08-13"),
-    //       "endDate": new Date("2022-05-22"),
-    //       "currentMatchday": 31,
-    //       "winner": null
-    //     },
-    //     {
-    //       "id": 380,
-    //       "startDate": new Date("2021-08-13"),
-    //       "endDate": new Date("2022-05-22"),
-    //       "currentMatchday": 31,
-    //       "winner": null
-    //     },
-    //     {
-    //       "id": 380,
-    //       "startDate": new Date("2021-08-13"),
-    //       "endDate": new Date("2022-05-22"),
-    //       "currentMatchday": 31,
-    //       "winner": null
-    //     },
-    //     {
-    //       "id": 380,
-    //       "startDate": new Date("2021-08-13"),
-    //       "endDate": new Date("2022-05-22"),
-    //       "currentMatchday": 31,
-    //       "winner": null
-    //     },
-
-    //   ],
-    //   "lastUpdated": new Date("2022-03-20")
-    // };
 
   }
 
+
+
+  datosClasificacion(): Observable<Clasificacion> {
+
+    const headerDict = {
+      'X-Auth-Token': this._apiKey,
+    }
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+      
+    };
+
+    const url: string = `${this._servicioURL}/competitions/${this._competitionId}/standings`;
+
+    return this.http.get<Clasificacion>(url, requestOptions);
+
+  }
+
+
+    
+  
+    partidosTemporada():Observable<Partidos> {
+      const headerDict = {
+        'X-Auth-Token': this._apiKey,
+      }
+  
+      const requestOptions = {
+        headers: new HttpHeaders(headerDict),
+      };
+  
+      const url: string = `${this._servicioURL}/competitions/${this._competitionId}/matches`;
+  
+      return this.http.get<Partidos>(url, requestOptions);
+    }
+  
+ 
 
 }

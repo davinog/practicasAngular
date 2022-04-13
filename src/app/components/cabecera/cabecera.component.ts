@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FootballDataService } from '../../services/football-data.service';
-import { Competition} from '../../interfaces/football.interface';
+import { Competition} from '../../interfaces/competicion.interface';
 
 
 @Component({

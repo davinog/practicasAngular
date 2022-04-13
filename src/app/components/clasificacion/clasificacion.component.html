@@ -1,1 +1,43 @@
-<p>clasificacion works!</p>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th> # </th>
+            <th> escudo </th>
+            <th> Equipo </th>
+            <th> Puntos </th>
+            <th> PX </th>
+            <th> PG </th>
+            <th> PE </th>
+            <th> PP </th>
+            <th> GF </th>
+            <th> GC </th>
+            <th> DF </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let equipo of tablaClasificacion; let n" 
+            [ngStyle]="{'background-color':
+                (equipo.position === 1) ? 'gold'   : 
+                (equipo.position === 2) ? 'silver' : 
+                (equipo.position === 3) ? 'salmon' :  
+                null,
+                'font-weight': (equipo.position<=3)?  'bold' : null }">
+            <td>{{equipo.position}}</td>
+            <td>
+                <img class="small-flag" src="{{equipo.team.crestUrl}}" alt="" width="30">
+            </td>
+            <td>{{equipo.team.name}} </td>
+            <td>{{equipo.points}}</td>
+            <td>{{equipo.playedGames}}</td>
+            <td>{{equipo.won}}</td>
+            <td>{{equipo.draw}}</td>
+            <td>{{equipo.lost}}</td>
+            <td>{{equipo.goalsFor}}</td>
+            <td>{{equipo.goalsAgainst}}</td>
+            <td>{{equipo.goalDifference}}</td>
+
+
+        </tr>
+
+    </tbody>
+</table>

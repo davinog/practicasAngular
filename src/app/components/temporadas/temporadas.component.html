@@ -1,1 +1,32 @@
-<p>temporadas works!</p>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th> Temporada </th>
+            <th> Partidos </th>
+            <th> Campion </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let temp of temporadas ">
+
+            <td>{{temp.startDate | date:'yyyy'}}
+                - {{temp.endDate | date:'yyyy'}}
+            </td>
+
+            <td>
+                <!-- {{numeroPartidos(temp.id)}} -->
+                0
+            </td>
+
+            <td>
+                <span *ngIf="!temp.winner?.name; else ganador">
+                    Sen informacion
+                </span>
+                <ng-template #ganador>
+                    {{temp.winner!.name}}
+                </ng-template>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

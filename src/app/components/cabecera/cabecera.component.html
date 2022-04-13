@@ -1,11 +1,12 @@
 <div class="container p-3   ">
     <div class="header">
 
-        <h5>
-            <img src="{{competition.emblemUrl}}" width="25" />
-            Primera Division 
-        </h5>
-
+        <h1>
+            <img src="{{competition.emblemUrl}}" width="30" />
+            {{competition.name}}
+          
+        </h1>
+        
     </div>
     <div class="row  ">
         <table class=" .table-borderless " *ngIf="competition">
@@ -20,7 +21,7 @@
                 </tr>
                 <tr>
                     <th scope="row">Xornada:</th>
-                    <td>{{competition.seasons.length }}</td>
+                    <td>{{competition.seasons[0].currentMatchday }}</td>
                 </tr>
                 <tr>
                     <th scope="row">Campión:</th>
@@ -36,7 +37,8 @@
 
             </tbody>
 
-            <tfoot>
+            <tfoot >
+              
                 <small class="text-muted">
                     Última actualización:
                     <strong>
@@ -44,7 +46,7 @@
                        
                     </strong>
                 </small>
-
+     
             </tfoot>
         </table>
     </div>

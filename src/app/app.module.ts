@@ -2,6 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatCardModule} from '@angular/material/card';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,7 +13,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ClasificacionComponent } from './components/clasificacion/clasificacion.component';
 import { PartidosComponent } from './components/partidos/partidos.component';
 import { TemporadasComponent } from './components/temporadas/temporadas.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -23,7 +25,8 @@ import { TemporadasComponent } from './components/temporadas/temporadas.componen
     MenuComponent,
     ClasificacionComponent,
     PartidosComponent,
-    TemporadasComponent
+    TemporadasComponent,
+
     
     
   ],
@@ -31,7 +34,9 @@ import { TemporadasComponent } from './components/temporadas/temporadas.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-  
+    MatTabsModule,
+    BrowserAnimationsModule,
+    MatCardModule
     
   ],
   providers: [],

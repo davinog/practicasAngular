@@ -1,1 +1,85 @@
-<p>partidos works!</p>
+<div fxLayout="row">
+
+
+    <!-- <div class="row">
+                <div *ngFor="let partido of partidos"  class="col-md-6 col-sm-6 animate__animated animate__fadeIn animate__faster"  >
+                    <div class="card">
+                        <img 
+                        >
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{partido.matchday}}
+                                {{partido.utcDate}}
+                            </p> 
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+    <mat-tab-group>
+        <div *ngFor="let n of [].constructor(partidos[0].season.currentMatchday); let xornada = index">
+
+            <mat-tab label="{{xornada+1}}">
+
+                <h2 class=" mt-2">Partidos da Xornada {{xornada+1}}</h2>
+
+                <div *ngFor="let partido of partidos"
+                    class="col-md-12 col-sm-12 animate__animated animate__fadeIn animate__faster">
+
+                    <div *ngIf="partido.matchday == xornada+1" class="card">
+
+
+                        <div class="card-body" [style.text-align]="'center'">
+
+                            <h5>Xornada {{partido.matchday}}
+                                 &nbsp; <!-- es un spacio  -->
+                                <span class="text-muted">
+                                    ({{ partido.utcDate | date:'dd-mm-yyyy'}})
+                                </span>
+                            </h5>
+                            <table class="tabla-resultado">
+                                <tr>
+                                    <td>
+                                        {{partido.homeTeam.name}}
+                                    </td>
+                                    <td>
+
+                                        
+                                            <strong *ngIf="partido.status.localeCompare('finished'); else pendiente">
+                                                {{partido.score.fullTime.homeTeam}} -
+                                                {{partido.score.fullTime.awayTeam}}
+                                            </strong>
+                                       
+                                        <ng-template #pendiente>
+                                           0 - 0
+                                        </ng-template>
+                                     
+                                    </td>
+                                    <td>
+                                        {{partido.awayTeam.name}}
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p class="card-text text-muted">
+                                {{partido.status | uppercase}}
+                            </p>
+
+                        </div>
+                        
+                    </div>
+                    
+                   
+                </div>
+             
+
+
+            </mat-tab>
+
+
+
+        </div>
+    </mat-tab-group>
+
+</div>
