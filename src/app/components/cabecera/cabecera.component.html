@@ -2,11 +2,12 @@
     <div class="header">
 
         <h1>
-            <img src="{{competition.emblemUrl}}" width="30" />
-            {{competition.name}}
+            <img src="{{competition?.emblemUrl}}" width="30" />
+            {{competition?.name}}
       
         </h1>
-        <!-- <button (click)="cambiarCompeticion()">>>></button> no se como hacer que tras llamar a este metodo se actualize la web -->
+        <button mat-raised-button (click)="cambiarCompeticion()" mat-button> > </button> 
+        <!-- no se como hacer que tras llamar a este metodo se actualize la web -->
     </div>
     <div class="row  ">
         <table class=" .table-borderless " *ngIf="competition">
@@ -16,8 +17,8 @@
                     <td> {{competition.area.name}}</td>
                 <tr>
                     <th scope="row">Temporada:</th>
-                    <td>{{competition.currentSeason.startDate | date:'yyyy'}} 
-                      - {{competition.currentSeason.endDate   | date:'yyyy'}} </td>
+                    <td>{{competition?.currentSeason?.startDate | date:'yyyy'}} 
+                      - {{competition?.currentSeason?.endDate   | date:'yyyy'}} </td>
                 </tr>
                 <tr>
                     <th scope="row">Xornada:</th>
@@ -30,7 +31,7 @@
                             Sen informacion
                         </span>
                         <ng-template #ganador>
-                            {{competition.currentSeason.winner!.name}}
+                            {{competition?.currentSeason?.winner!.name}}
                         </ng-template>
                     </td>
                 </tr>
@@ -42,7 +43,7 @@
                 <small class="text-muted">
                     Última actualización:
                     <strong>
-                        {{competition.lastUpdated | date:'longDate'}}
+                        {{competition?.lastUpdated | date:'longDate'}}
                        
                     </strong>
                 </small>

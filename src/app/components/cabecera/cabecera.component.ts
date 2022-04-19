@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { FootballDataService } from '../../services/football-data.service';
 import { Competition} from '../../interfaces/competicion.interface';
 
@@ -9,6 +9,7 @@ import { Competition} from '../../interfaces/competicion.interface';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent {
+
 
   private comp!: Competition;
 
@@ -21,7 +22,7 @@ export class CabeceraComponent {
     this.footballDataService.datosCompeticion()
       .subscribe((resp: Competition) => {
         this.comp = resp;
-        console.log(this.comp);
+       
       })
 
   }
@@ -33,6 +34,9 @@ export class CabeceraComponent {
 
   cambiarCompeticion(){
     this.footballDataService.cambiarCompeticion();
+ 
   }
 
+
+  
 }

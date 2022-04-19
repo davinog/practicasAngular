@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button'
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ClasificacionComponent,
     PartidosComponent,
     TemporadasComponent,
+    
 
     
     
@@ -36,7 +38,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MatTabsModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
     
   ],
   providers: [],

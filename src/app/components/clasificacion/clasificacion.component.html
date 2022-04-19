@@ -12,10 +12,11 @@
             <th> GF </th>
             <th> GC </th>
             <th> DF </th>
+            <th> Web </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let equipo of tablaClasificacion; let n" 
+        <tr *ngFor="let equipo of tablaClasificacion!; let n" 
             [ngStyle]="{'background-color':
                 (equipo.position === 1) ? 'gold'   : 
                 (equipo.position === 2) ? 'silver' : 
@@ -35,7 +36,7 @@
             <td>{{equipo.goalsFor}}</td>
             <td>{{equipo.goalsAgainst}}</td>
             <td>{{equipo.goalDifference}}</td>
-
+            <td><a href="{{getWebPage(equipo.team.id)}}"><img src="{{urlIconoWww}}"></a></td>
 
         </tr>
 

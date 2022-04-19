@@ -18,16 +18,16 @@
 
 
     <mat-tab-group>
-        <div *ngFor="let n of [].constructor(partidos[0].season.currentMatchday); let xornada = index">
+        <div *ngFor="let n of partidos2; let xornada = index">
 
             <mat-tab label="{{xornada+1}}">
 
                 <h2 class=" mt-2">Partidos da Xornada {{xornada+1}}</h2>
 
-                <div *ngFor="let partido of partidos"
+                <div *ngFor="let partido of n"
                     class="col-md-12 col-sm-12 animate__animated animate__fadeIn animate__faster">
 
-                    <div *ngIf="partido.matchday == xornada+1" class="card">
+                    <div *ngIf="partido?.matchday == xornada+1" class="card">
 
 
                         <div class="card-body" [style.text-align]="'center'">
@@ -38,7 +38,7 @@
                                     ({{ partido.utcDate | date:'dd-mm-yyyy'}})
                                 </span>
                             </h5>
-                            <table class="tabla-resultado">
+                            <table >
                                 <tr>
                                     <td>
                                         {{partido.homeTeam.name}}
@@ -46,7 +46,7 @@
                                     <td>
 
                                         
-                                            <strong *ngIf="partido.status.localeCompare('finished'); else pendiente">
+                                            <strong *ngIf="partido.status?.localeCompare('finished'); else pendiente">
                                                 {{partido.score.fullTime.homeTeam}} -
                                                 {{partido.score.fullTime.awayTeam}}
                                             </strong>
@@ -57,7 +57,7 @@
                                      
                                     </td>
                                     <td>
-                                        {{partido.awayTeam.name}}
+                                        {{partido.awayTeam?.name}}
                                     </td>
                                 </tr>
                             </table>

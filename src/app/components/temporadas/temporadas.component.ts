@@ -22,7 +22,7 @@ export class TemporadasComponent implements OnInit {
     this.footballDataService.datosCompeticion()
       .subscribe((resp: Competition) => {
         this.temporadas = resp.seasons;
-        console.log(this.temporadas);
+      
       })
 
   }

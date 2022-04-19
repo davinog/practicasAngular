@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { Match, Partidos } from 'src/app/interfaces/partidos.interface';
 import { FootballDataService } from '../../services/football-data.service';
 
@@ -29,7 +29,10 @@ import { FootballDataService } from '../../services/football-data.service';
 })
 export class PartidosComponent implements OnInit {
 
-  partidos: Match[] = [];
+  partidos2: Match[][] = [[]];
+ 
+
+
 
   constructor(private footballDataService: FootballDataService) { }
 
@@ -37,9 +40,17 @@ export class PartidosComponent implements OnInit {
 
     this.footballDataService.partidosTemporada()
       .subscribe((resp: Partidos) => {
-        this.partidos = resp.matches;
+        console.log(resp.matches);
+
+        for (let i = 0; i < resp.matches[0].season.currentMatchday; i++) {
+          this.partidos2[i] = resp.matches.filter((p) => p.matchday == i+1)
+        }
+        
       })
 
   }
+
+
+
 
 }
